@@ -103,7 +103,7 @@ Vision.prototype = {
     headingInDegrees: function(degrees) { this.heading = Tools.degreesToRadians(degrees); },
 
     setFOV: function(fov) { this.fov = Tools.degreesToRadians(fov); },
-    incFOV: function(inc) { console.log("incrementing "+inc); this.fov = this.fov + Tools.degreesToRadians(inc); },
+    incFOV: function(inc) { this.fov = this.fov + Tools.degreesToRadians(inc); },
 
     setColour: function(colour) { this.colour = colour; },
 
