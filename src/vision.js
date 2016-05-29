@@ -1,3 +1,5 @@
+// Requires: vec2.js, tools.js
+
 var Ray = function(a,b) {
     this.a = a || new Vec2();
     this.b = b || new Vec2();
@@ -101,6 +103,7 @@ Vision.prototype = {
     headingInDegrees: function(degrees) { this.heading = Tools.degreesToRadians(degrees); },
 
     setFOV: function(fov) { this.fov = Tools.degreesToRadians(fov); },
+    incFOV: function(inc) { console.log("incrementing "+inc); this.fov = this.fov + Tools.degreesToRadians(inc); },
 
     setColour: function(colour) { this.colour = colour; },
 

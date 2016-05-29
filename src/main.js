@@ -22,6 +22,10 @@ var vision = new Vision();
 var player = new Vec2(180,180);
 
 function update() {
+
+    if (Key.isDown(Key.LSqrBrkt)) vision.incFOV(-2);
+    if (Key.isDown(Key.RSqrBrkt)) vision.incFOV(2);
+
     vision.calc(allWallSegments());
     var colour = (vision.contains(player)) ? 'rgba(255,0,0,0.3)' : 'rgba(255,255,255,0.5)';
     vision.setColour(colour);
