@@ -8,7 +8,7 @@ function Vision(fov) {
     this.polygon = [];
     this.heading = 0;
     this.source = new Vec2(canvas.width/2, canvas.height/2);
-    this.colour = 'rgba(255,255,255,0.4)';
+    this.colour = 'rgba(255,255,255,0.1)';
 }
 
 Vision.prototype = {
@@ -98,20 +98,13 @@ Vision.prototype = {
         this.buildPolygon(intersects);
     },
 
-    headingInDegrees: function(degrees) {
-        this.heading = Tools.degreesToRadians(degrees);
-    },
+    headingInDegrees: function(degrees) { this.heading = Tools.degreesToRadians(degrees); },
 
-    setFOV: function(fov) {
-        this.fov = Tools.degreesToRadians(fov);
-    },
+    setFOV: function(fov) { this.fov = Tools.degreesToRadians(fov); },
 
-    draw: function() {
-        ctx.fillStyle = this.colour;
-        ctx.moveTo(this.source.x, this.source.y);
-        for (var i = 1; i < this.polygon.length; i++) {
-            ctx.lineTo(this.polygon[i].x, this.polygon[i].y);
-        }
-        ctx.fill();
-    }
+    setColour: function(colour) { this.colour = colour; },
+
+    contains: function(point) { return Tools.pointInPolygon(this.polygon, point); },
+
+    draw: function() { DrawTools.polygon(this.polygon, this.colour); }
 };

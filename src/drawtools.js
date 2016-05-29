@@ -18,5 +18,14 @@ var DrawTools = {
     ringedCircle: function(position, radius, circleColour, ringColour, thickness) {
         this.circle(position, radius, circleColour);
         this.ring(position, radius, ringColour, thickness);
+    },
+
+    polygon: function(polygon, colour) {
+        ctx.fillStyle = colour;
+        ctx.moveTo(polygon[0].x, polygon[0].y);
+        for (var i = 1; i < polygon.length; i++) {
+            ctx.lineTo(polygon[i].x, polygon[i].y);
+        }
+        ctx.fill();
     }
 };

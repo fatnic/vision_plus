@@ -19,9 +19,12 @@ wallByGrid(15, 21, 1, 3);
 wallByGrid(15, 27, 1, 3);
 
 var vision = new Vision();
+var player = new Vec2(180,180);
 
 function update() {
     vision.calc(allWallSegments());
+    var colour = (vision.contains(player)) ? 'rgba(255,0,0,0.3)' : 'rgba(255,255,255,0.5)';
+    vision.setColour(colour);
 }
 
 function draw () {
@@ -34,8 +37,12 @@ function draw () {
 
     // Draw vision polygon
     vision.draw();
+
     // Draw vision source
     DrawTools.circle(vision.source, 4, 'yellow');
+
+    // Draw player
+    DrawTools.circle(player, 4, 'green');
 }
 
 function loop() {
@@ -46,6 +53,10 @@ function loop() {
 
 canvas.onmousemove = function(event) {
     vision.heading = vision.source.angleTo(new Vec2(event.clientX, event.clientY));
+};
+
+canvas.onclick = function(event) {
+    vision.source.set(event.clientX, event.clientY);
 };
 
 window.onload = function() {
