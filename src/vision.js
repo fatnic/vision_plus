@@ -108,6 +108,4 @@ Vision.prototype = {
     setColour: function(colour) { this.colour = colour; },
 
     contains: function(point) { return Tools.pointInPolygon(this.polygon, point); },
-
-    draw: function() { DrawTools.polygon(this.polygon, this.colour); }
 };

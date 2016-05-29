@@ -41,8 +41,7 @@ function draw () {
 
     // Draw vision polygon
     DrawTools.polygon(vision.polygon, vision.colour);
-    // vision.draw();
-
+    
     // Draw vision source
     DrawTools.circle(vision.source, 4, 'yellow');
 
