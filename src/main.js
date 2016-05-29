@@ -40,7 +40,8 @@ function draw () {
     for(var i = 0; i < Walls.length; i++) { Walls[i].draw(); }
 
     // Draw vision polygon
-    vision.draw();
+    DrawTools.polygon(vision.polygon, vision.colour);
+    // vision.draw();
 
     // Draw vision source
     DrawTools.circle(vision.source, 4, 'yellow');

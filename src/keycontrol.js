@@ -2,6 +2,9 @@ var Key = {
     _pressed: {},
 
     SPACE: 32,
+
+    // Dynamically build this
+
     A: 65,
     B: 66,
     C: 68,
@@ -12,16 +15,9 @@ var Key = {
     LSqrBrkt: 219,
     RSqrBrkt: 221,
 
-
-    isDown: function(keyCode) {
-        return this._pressed[keyCode];
-    },
-    onKeydown: function(event) {
-        this._pressed[event.keyCode] = true;
-    },
-    onKeyup: function(event) {
-        delete this._pressed[event.keyCode];
-    }
+    isDown: function(keyCode) { return this._pressed[keyCode]; },
+    onKeydown: function(event) { this._pressed[event.keyCode] = true; },
+    onKeyup: function(event) { delete this._pressed[event.keyCode]; }
 };
 
 window.addEventListener('keyup', function(event) {
