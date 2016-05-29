@@ -32,17 +32,22 @@ function draw () {
     // Draw walls
     for(var i = 0; i < Walls.length; i++) { Walls[i].draw(); }
 
+    // Draw vision polygon
+    vision.draw();
     // Draw vision source
     DrawTools.circle(vision.source, 4, 'yellow');
 }
 
 function loop() {
-    window.requestAnimationFrame(draw);
+    window.requestAnimationFrame(loop);
     update();
     draw();
 }
 
+canvas.onmousemove = function(event) {
+    vision.heading = vision.source.angleTo(new Vec2(event.clientX, event.clientY));
+};
+
 window.onload = function() {
-    vision.source.set(canvas.width/2, canvas.height/2);
     loop();
 };
