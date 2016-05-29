@@ -19,6 +19,9 @@ wallByGrid(15, 21, 1, 3);
 wallByGrid(15, 27, 1, 3);
 
 var vision = new Vision();
+
+var wallSegments = allWallSegments();
+
 var player = new Vec2(180,180);
 
 function update() {
@@ -26,7 +29,7 @@ function update() {
     if (Key.isDown(Key.LSqrBrkt)) vision.incFOV(-2);
     if (Key.isDown(Key.RSqrBrkt)) vision.incFOV(2);
 
-    vision.calc(allWallSegments());
+    vision.calc(wallSegments);
     var colour = (vision.contains(player)) ? 'rgba(255,0,0,0.3)' : 'rgba(255,255,255,0.5)';
     vision.setColour(colour);
 }
@@ -41,7 +44,7 @@ function draw () {
 
     // Draw vision polygon
     DrawTools.polygon(vision.polygon, vision.colour);
-    
+
     // Draw vision source
     DrawTools.circle(vision.source, 4, 'yellow');
 
